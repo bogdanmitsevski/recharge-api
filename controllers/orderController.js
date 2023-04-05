@@ -14,7 +14,7 @@ class OrderController {
                 const discountResponse = await fetch(`https://api.rechargeapps.com/discounts/${req.body.order.discount_codes[0].recharge_discount_id}`, requestDiscountOptions) // отримання списку знижок, які є в recharge
                     .then(res => res.json())
                     .catch(error => console.log('error', error));
-                if(discountResponse.discount.status !== 'disabled') { // перевірка чи існуючий купон є активним
+                if (discountResponse.discount.status !== 'disabled') { // перевірка чи існуючий купон є активним
                     console.log('Скидка применена');                // купон сам додається, бек не запускаємо
                     res.status(200).send();
                 }
